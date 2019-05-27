@@ -10,20 +10,20 @@
 
 
 # Server Path
-	fivemPath="/home/zeref/server"
+	fivemPath="none"
 	if [ "$fivemPath" = "none" ]; then
     echo -e "Enter FiveM Server$cyan Files Path$default and press [ENTER]\nExample:$yellow /home/username/server$default"
     read input1
 	  fmp=$input1
-    sed -i "15s@none@$fmp@" $0
+    sed -i "13s@none@$fmp@" $0
 	fi 
 # Data Path
-	dataPath="/home/zeref/server-data"
+	dataPath="none"
 	if [ "$dataPath" = "none" ]; then
     echo -e "Enter FiveM Server$cyan Data Path$default and press [ENTER]\nExample:$yellow /home/username/server-data$default"
     read input2
 	  dap=$input2
-    sed -i "23s@none@$dap@" $0
+    sed -i "21s@none@$dap@" $0
 	  echo -e "$green\rDone.$default\nUsage: $yellow$0$default {start|stop|status|restart|cmd}"
 	  exit 0
 	fi 
