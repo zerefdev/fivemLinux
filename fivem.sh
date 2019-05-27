@@ -24,7 +24,7 @@
     read input2
 	  dap=$input2
     sed -i "21s@none@$dap@" $0
-	  echo -e "$green\rDone.$default\nUsage: $yellow$0$default {start|stop|status|restart|cmd}"
+	  echo -e "$green\rDone.$default\nUsage: $yellow$0$default {start|stop|restart|status|cmd}"
 	  exit 0
 	fi 
 
@@ -44,6 +44,7 @@ countdown () {
 		sleep 1
 		((cd--))
 	done
+	echo -e "\r"
 }
 ### End countdown function
 
@@ -74,7 +75,7 @@ case "$1" in
 		sleep 1
     	echo -e "$red\rServer stopped.$default"
 		sleep 1
-    	echo -e "$yellow\rDeleteing the cache...$default"
+    	echo -e "$yellow\rDeleting the cache...$default"
 		if [ -d "$dataPath/cache" ]; then
 			rm -Rf $dataPath/cache/
 			sleep 2
@@ -141,7 +142,7 @@ case "$1" in
 	fi
   ;;
 	*)
-    echo -e "Usage: $yellow$0$default {start|stop|status|restart|cmd}"
+    echo -e "Usage: $yellow$0$default {start|stop|restart|status|cmd}"
     exit 1
   ;;
 esac
