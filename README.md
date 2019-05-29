@@ -38,7 +38,8 @@ starts the server in debug mode (it will output the start process)
 
 # Demo video
 
-[![IYoutube Video](http://img.youtube.com/vi/_g7CxD-Lj64/0.jpg)](http://www.youtube.com/watch?v=_g7CxD-Lj64)
+[![IYoutube Video](http://img.youtube.com/vi/4XJxRYsmrAs/0.jpg)](https://www.youtube.com/watch?v=4XJxRYsmrAs)
+old version: https://www.youtube.com/watch?v=_g7CxD-Lj64
 
 # TODO
 * ~~improve cmd case~~  
