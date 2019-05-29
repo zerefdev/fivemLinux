@@ -1,6 +1,8 @@
 #!/bin/bash
 
 ### Start variables
+# Version
+currentVersion="1.0"
 # Colors
 	default='\e[0m'
 	red='\e[0;31m'
