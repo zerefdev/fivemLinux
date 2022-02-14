@@ -1,7 +1,6 @@
 #!/bin/bash
-# fivemLinux by ZerefGG @alttabgaming.com
 # if you have any suggestions or improvements, don't hesitate to send your pull requests
-# https://github.com/Zerefdev/fivemLinux
+# https://github.com/zerefdev/fivemLinux
 
 ### Start variables
 # Version
@@ -36,7 +35,7 @@ function countdown () {
 		((cd--))
 	done
 	echo -e "\r"
-}	
+}
 
 # Paths
 file=$(readlink -f "$0")
@@ -54,18 +53,18 @@ screen="none"
     read input1
 	  screenName=$input1
     sed -i "48s@none@$screenName@" $0
-	fi 
+	fi
 
-# Server Path  
+# Server Path
 	if [ "$fivemPath" = "none" ]; then
 		yellowMsg "Enter your FiveM Server Files Path and press [ENTER]"
 		cyanMsg "Example: /home/username/server"
     read input2
 	  fmp=$input2
     sed -i "44s@none@$fmp@" $0
-	fi 
+	fi
 
-# Data Path 
+# Data Path
 	if [ "$dataPath" = "none" ]; then
 		yellowMsg "Enter your FiveM Server Data Path and press [ENTER]"
 		cyanMsg "Example: /home/username/server-data"
@@ -75,7 +74,7 @@ screen="none"
 		greenMsg "Done."
 		echo '##############################
 ###
-# Usage: 
+# Usage:
 # - ./fivem.sh update (updates fivemLinux to latest version)
 # - ./fivem.sh start (starts the server in silent mode)
 # - ./fivem.sh stop (stops the server)
@@ -89,7 +88,7 @@ screen="none"
 
 # Check if a server with same screen name is already running
 cd $dataPath
-isOn(){
+isOn() {
 	screen -S "$screen" -X select ; return $?
 }
 ### End variables
@@ -99,7 +98,7 @@ isOn(){
 case "$1" in
 # Update
 update)
-	latestVersion=$(wget --no-check-certificate --timeout=60 -qO - https://raw.githubusercontent.com/Zerefdev/fivemLinux/master/fivem.sh | grep -Po '(?<=currentVersion=")([0-9]\.[0-9]+)')
+	latestVersion=$(wget --no-check-certificate --timeout=60 -qO - https://raw.githubusercontent.com/zerefdev/fivemLinux/master/fivem.sh | grep -Po '(?<=currentVersion=")([0-9]\.[0-9]+)')
 
 	if [ "$(printf "${latestVersion}\\n${currentVersion}" | sort -V | tail -n 1)" != "$currentVersion" ]; then
 		if isOn; then
@@ -114,7 +113,7 @@ update)
 			mv $file $file.save
 			greenMsg "Backup saved (fivem.sh.save)"
 			sleep 1
-			wget https://raw.githubusercontent.com/Zerefdev/fivemLinux/master/fivem.sh
+			wget https://raw.githubusercontent.com/zerefdev/fivemLinux/master/fivem.sh
 			sleep 2
 			if [ -f "fivem.sh" ]; then
 				dos2unix fivem.sh
@@ -134,7 +133,7 @@ update)
 	fi
 	;;
 
-# Start  
+# Start
 start)
 	if isOn; then
 	redMsg "Server already started"
@@ -157,7 +156,7 @@ start)
 			rm -Rf $dataPath/cache/
 			sleep 2
 			greenMsg "Cache deleted."
-		else 
+		else
 		redMsg "Cache directory not found."
 		fi
 	else
@@ -230,7 +229,7 @@ start)
 		redMsg "Server is not running."
 	fi
   ;;
-	
+
 # Start in debug mode
 	debug)
 	if isOn; then
