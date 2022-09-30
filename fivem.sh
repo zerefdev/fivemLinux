@@ -24,7 +24,7 @@ function cyanMsg() {
 }
 
 # Restart message
-  restartMsg="Server Restart in $2 seconds!"
+restartMsg="Server Restart in $2 seconds!"
 
 # Countdown function
 function countdown () {
@@ -50,27 +50,27 @@ screen="none"
 	if [ "$screen" = "none" ]; then
 		yellowMsg "What do you want to name the screen session?"
 		cyanMsg "Example: fivem"
-    read input1
-	  screenName=$input1
-    sed -i "48s@none@$screenName@" $0
+        read input1
+        screenName=$input1
+        sed -i "47s@none@$screenName@" $0
 	fi
 
 # Server Path
 	if [ "$fivemPath" = "none" ]; then
 		yellowMsg "Enter your FiveM Server Files Path and press [ENTER]"
 		cyanMsg "Example: /home/username/server"
-    read input2
-	  fmp=$input2
-    sed -i "44s@none@$fmp@" $0
+        read input2
+        fmp=$input2
+        sed -i "43s@none@$fmp@" $0
 	fi
 
 # Data Path
 	if [ "$dataPath" = "none" ]; then
 		yellowMsg "Enter your FiveM Server Data Path and press [ENTER]"
 		cyanMsg "Example: /home/username/server-data"
-    read input3
-	  dap=$input3
-    sed -i "45s@none@$dap@" $0
+        read input3
+	    dap=$input3
+        sed -i "44s@none@$dap@" $0
 		greenMsg "Done."
 		echo '##############################
 ###
@@ -83,7 +83,7 @@ screen="none"
 # - ./fivem.sh debug (starts the server in debug mode)
 ###
 ##############################'
-	exit 0
+	    exit 0
 	fi
 
 # Check if a server with same screen name is already running
@@ -136,7 +136,7 @@ update)
 # Start
 start)
 	if isOn; then
-	redMsg "Server already started"
+	    redMsg "Server already started"
 	else
 		yellowMsg "Server is starting..."
 		screen -dmS $screen $fivemPath/run.sh +exec server.cfg
@@ -157,7 +157,7 @@ start)
 			sleep 2
 			greenMsg "Cache deleted."
 		else
-		redMsg "Cache directory not found."
+		    redMsg "Cache directory not found."
 		fi
 	else
 		redMsg "Server not started."
